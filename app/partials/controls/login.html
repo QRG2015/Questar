@@ -1,5 +1,5 @@
 <div class="login">
-    <div class="order-cloud-image" style="background: url('css/images/orderCloud.jpg') center center fixed;"></div>
+    <div class="order-cloud-image"></div>
     <section class="order-cloud">
         <div id="login_box">
             <div id="login_form" class="animated bounceIn">
@@ -9,12 +9,12 @@
                     <div>
                         <div class="view-form-icon" ng-show="!showEmailHelp">
                             <div>
-                                <label ng-show="credentials.Username">{{'Username' | r}}</label>
-                                <input autofocus class="form-control" type="text" ng-model="credentials.Username" placeholder="{{'Username' | r}}" />
+                                <label ng-show="credentials.Username" style="color: white;">Login</label>
+                                <input autofocus class="form-control" type="text" ng-model="credentials.Username" placeholder="Login" />
                                 <i class="fa fa-user"></i>
                             </div>
                             <div ng-show="!PasswordSecurityException">
-                                <label ng-show="credentials.Password">{{'Password' | r}}</label>
+                                <label ng-show="credentials.Password" style="color: white;">Password</label>
                                 <input class="form-control" type="password" ng-model="credentials.Password" placeholder="{{'Password' | r}}" />
                                 <i class="fa fa-lock"></i>
                             </div>

@@ -21,7 +21,7 @@
                     <label class="visible-xs">{{'Select all' | r}}</label>
                     <input type='checkbox' ng-click="checkAll($event)" />
                 </div>
-                <div class="col-sm-2 hidden-xs">{{'Name' | r}}</div>
+                <div class="col-sm-2 hidden-xs">{{'Address' | r}} {{'Name' | r}}</div>
                 <div class="col-sm-2 hidden-xs">{{'City' | r}}</div>
                 <div class="col-sm-2 hidden-xs">{{'State' | r}}</div>
                 <div class="col-sm-2 hidden-xs">{{'Shipping' | r}}</div>
@@ -68,4 +68,66 @@
             <div class="view-action-message alert-success" ng-show="actionMessage">{{actionMessage | r}}</div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{'Address' | r}} {{'Upload' | r}}</h3>
+        </div>
+        <div class="panel-table">
+            <div class="row">
+                <div class="btn btn-success pull-right" style="margin-right: 10px;" ng-show="addressPasteList" ng-click="generateAddresses(addressPasteList); tempAddressPasteList = []">
+                    <i class="fa fa-plus-circle"></i> Generate Addresses
+                </div>
+                <!--<div ng-repeat="field in user.CustomFields" ng-if="field.Name == 'AddressUploadSpreadsheet'">
+                    <span><a class="btn btn-link" href="{{field.File.Url}}" target="_blank"><i class="fa fa-download"></i> Download Spreadsheet Template</a></span>
+                </div>-->
+                <span>
+                    <a class="btn btn-link" href="https://www.four51.com/Themes/Custom/fad32e83-e533-45aa-a524-84ab6f5e08f9/Questar/lib/AddressUploadTemplate.xlsx" target="_blank">
+                        <i class="fa fa-download"></i> Download Spreadsheet Template
+                    </a>
+                </span>
+            </div>
+            <div class="row">
+                <angular-paste ng-hide="addressPasteList.length > 0" ng-model="rawPaste" ng-array="parsedPaste"></angular-paste>
+
+                <div class="text-info" ng-show="tempAddressPasteList.length > 0 && tempPasteError">
+                    <strong>The following errors were detected:</strong>
+                    <ul>
+                        <li ng-repeat="a in tempAddressPasteList | filter:{Invalid:true}">{{a.ErrorMessage}}</li>
+                    </ul>
+                </div>
+                <div class="recipient-upload-table">
+                    <div class="row" ng-hide="addressPasteList.length == 0 || !addressPasteList">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-md-2 col-xs-6"><b>{{'Address' | r}} {{'Name' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'First Name' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'Last' | r}} {{'Name' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'Company' | r}} {{'Name' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'Address Line 1' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'Address Line 2' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'City' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'State' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'Zip' | r}}</b></div>
+                                <div class="col-md-1 col-xs-12"><b>{{'Phone' | r}}</b></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recipient-paste-row" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="address in addressPasteList">
+                        <div class="row">
+                            <div class="col-md-2 col-xs-6"><b>{{address.AddressName}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.FirstName}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.LastName}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.CompanyName}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.Street1}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.Street2}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.City}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.State}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.Zip}}</b></div>
+                            <div class="col-md-1 col-xs-12"><b>{{address.Phone}}</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>

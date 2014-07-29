@@ -1,0 +1,16 @@
+<div class="row" ng-init="hideValidationBox = false">
+    <div class="col-md-9">
+        <textarea placeholder="Paste your spreadsheet cells here..." id="myPasteBox" class="form-control" rows="1"></textarea>
+        <div class="paste-box-validation" ng-show="tempAddressPasteList.length > 0" ng-class="{pbinvalid: tempPasteError, pbvalid: !tempPasteError}">
+            <i class="fa fa-times fa-2x pull-right" ng-click="tempAddressPasteList = []" id="clearPaste"></i>
+            <div class="paste-message">
+                {{tempPasteError ? 'INVALID SPREADSHEET.' : 'SPREADSHEET PASTE SUCCESSFUL!'}}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="btn btn-success btn-block btn-lg" id="uploadAddresses" ng-disabled="!tempAddressPasteList || tempAddressPasteList.length == 0" style="margin-top:0; padding:13px 0;">
+            <i class="fa fa-upload"></i> Upload
+        </div>
+    </div>
+</div>

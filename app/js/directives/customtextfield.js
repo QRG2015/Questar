@@ -4,11 +4,13 @@ four51.app.directive('customtextfield', function() {
             customfield : '=',
             changed: '=',
             hidesuffix: '@',
-            hideprefix: '@'
+            hideprefix: '@',
+            mask: '@mask'
         },
         restrict: 'E',
         transclude: true,
         templateUrl: 'partials/controls/customTextField.html'
-    }
+
+    };
     return obj;
 });

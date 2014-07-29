@@ -1,1 +1,117 @@
-/*do not make changes to this file. It will be overwritten by the css editor. Put theme changes in custom.css*/
+.jumbotron {margin:0 0 -40px;}
+.dropdown-mega {display: none;}
+
+.container .navbar-nav li.active a:hover  {background-color: #003F89;}
+.container .navbar-nav li.active a:focus  {background-color: #003F89;}
+.navbar-default .navbar-nav .open > a  {background-color: #003F89;}
+.navbar-default .navbar-nav .open > a:hover  {background-color: #003F89;}
+.navbar-default .navbar-nav .open > a:focus  {background-color: #003F89;}
+.navbar-nav li.dropdown li > a:hover  {background-color: #003F89;}
+.navbar-nav li.dropdown li > a:focus  {background-color: #003F89;}
+.navbar .container .navbar-nav li.active .fa-caret-down  {color: #0063AB;}
+.navbar-nav li.dropdown li > a  {color: #333333;}
+.navbar-nav li.dropdown li > a:hover  {color: #FFFFFF;}
+.navbar .container .navbar-nav.pull-right li a i:first-of-type  {border-color: #FFFFFF;}
+.badge  {background-color: #00477A;}
+.badge  {color: #fff;}
+.navbar-default  {background-color: #0063AB; }
+.container .navbar-nav li a  {color: #FFFFFF;}
+.container .navbar-nav li.active > a  {background-color: #003F89;}
+.container .navbar-nav li.active > a  {color: undefined;}
+.navbar-default, .dropdown-mega  {border-color: #0063AB;}
+body  {background-color: #F0F0F0;}
+body  {color: #333333;}
+.text-primary  {color: #0C2A3A;}
+.text-info  {color: #31708F;}
+body a  {color: #0C2A3A;}
+.btn-primary  {background-color: #0C2A3A;}
+.btn-primary, .btn-primary:hover  {color: #FFFFFF;}
+.btn-primary  {border-color: #081B24;}
+.btn-primary:hover  {background-color: #051118;}
+.btn-default  {background-color: #FFFFFF;}
+.btn-default, .btn-default:hover  {color: #333333;}
+.btn-default  {border-color: #CCCCCC;}
+.btn-default:hover  {background-color: #EBEBEB;}
+.btn-info  {background-color: #5BC0DE;}
+.btn-info, .btn-info:hover  {color: #FFFFFF;}
+.btn-info  {border-color: #46B8DA;}
+.btn-info:hover  {background-color: #39B3D7;}
+.btn-success  {background-color: #5CB85C;}
+.btn-success, .btn-success:hover  {color: #FFFFFF;}
+.btn-success  {border-color: #4CAE4C;}
+.btn-success:hover  {background-color: #47A447;}
+.btn-warning  {background-color: #f0ad4e;}
+.btn-warning, .btn-warning:hover  {color: #FFFFFF;}
+.btn-warning  {border-color: #EEA236;}
+.btn-warning:hover  {background-color: #ED9C28;}
+.btn-danger  {background-color: #D9534F;}
+.btn-danger, .btn-danger:hover  {color: #FFFFFF;}
+.btn-danger  {border-color: #D43F3A;}
+.btn-danger:hover  {background-color: #D2322D;}
+.jumbotron  {background-color: #FFFFFF;}
+.fa-arrow-left{color:#ffffff !important;}
+h2 .jumbotron  {color: #333333;}
+.panel-primary .panel-heading .panel-title  {background-color: #0C2A3A; }
+.panel-primary .panel-heading .panel-title  {color: #FFFFFF;}
+.panel-default .panel-heading .panel-title  {background-color: #003F89; background-image:url('https://www.questarcapital.com/images/header_star.png');
+    background-repeat:no-repeat;
+    background-position:right;
+}
+.panel-default .panel-heading .panel-title  {color: #FFF;}
+.panel  {background-color: #FFFFFF;}
+.panel-footer  {background-color: #F5F5F5;}
+.panel-category-list .well  {background-color: #FFFFFF;}
+.panel-category-list .well h5  {color: #333333;}
+.panel-category-list .well  {border-color: #F0F0F0;}
+.panel-product-list .well  {background-color: #FFFFFF;}
+.panel-product-list .well  {color: #333333;}
+.panel-product-list .well  {border-color: #F0F0F0;}
+
+.order-cloud-image {
+    background:url('https://www.four51.com/Themes/Custom/fad32e83-e533-45aa-a524-84ab6f5e08f9/Questar/images/questarBackground.jpg' );
+}
+.dropdown-toggle:focus {background-color: #003F89!important;}
+.dropdown-toggle:open{background-color: #003F89!important;}
+.fa-caret-down{color:#003F89!important;}
+
+.giftOption span {
+    padding:0 20px 0 0;
+}
+
+.giftOption h3 {
+    font-size: 24px;
+    margin: 0;
+    padding: 5px 0 0 0;
+}
+
+.giftOption img {
+    padding:0;
+    margin:0;
+}
+
+@media (max-width: 320px) {
+
+    .giftOption span {
+        padding:0 5px 0 0;
+    }
+
+    .giftOption h3 {
+        font-size: 18px;
+        margin: 0;
+        padding: 5px 0 0 0;
+    }
+
+    li.spending-account {
+        color: #FFFFFF;
+        padding:10px 10px;
+        border-width:0 1px;
+        border-style: dotted;
+        border-color:#FFFFFF;
+    }
+
+    li.spending-account span {
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+}

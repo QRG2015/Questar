@@ -81,6 +81,9 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
+                    <li class="hidden-xs hidden-sm spending-account" ng-show="SpendingAccounts[0].Balance > 0">
+                        <span>Balance</span><br />{{(SpendingAccounts[0].Balance | currency) || (0 | currency)}}
+                    </li>
                     <li class="cart" ng-class="{'active': isActive(['cart', 'checkout'])}">
                         <a id="451qa_cart_link" ng-show="cartCount && user.CurrentOrderID" class="cart" href="cart">
                             <span ng-bind="cartCount" class="badge"></span>

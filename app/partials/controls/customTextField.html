@@ -3,7 +3,8 @@
         <label>{{customfield.Label || customfield.Name | r}}</label>
         <div ng-class="{'input-group':(customfield.Prefix || customfield.Suffix && !(hidesuffix && hideprefix))}">
             <span class="input-group-addon" ng-if="customfield.Prefix && !hideprefix && !((customfield.Prefix | r) == '')">{{customfield.Prefix | r}}</span>
-            <input class="form-control" placeholder="{{customfield.Label || customfield.Name | r}}" size="{{customfield.Width * .13}}" ng-maxlength="{{customfield.MaxLength}}" ui-mask="{{customfield.MaskedInput}}" type="text" autocomplete="off" ng-required="{{customfield.Required}}" ng-model="customfield.Value"></input>
+            <input ng-show="customfield.Name != 'Phone1' && customfield.Name != 'Phone2' && customfield.Name != 'Phone3'" class="form-control" size="{{customfield.Width * .13}}" ng-maxlength="{{customfield.MaxLength}}" placeholder="{{customfield.Label || customfield.Name | r}}" ui-mask="{{customfield.MaskedInput}}" type="text" autocomplete="off" ng-required="{{customfield.Required}}" ng-model="customfield.Value"></input>
+            <input ng-show="customfield.Name == 'Phone1' || customfield.Name == 'Phone2' || customfield.Name == 'Phone3'" class="form-control" size="{{customfield.Width * .13}}" ng-maxlength="{{customfield.MaxLength}}" ui-mask="{{mask || customfield.MaskedInput}}" useViewValue="true" type="text" autocomplete="off" ng-required="{{customfield.Required}}" ng-model="customfield.Value"></input>
             <span class="input-group-addon" ng-if="customfield.Suffix && !hidesuffix && !((customfield.Suffix | r) == '')">{{customfield.Suffix | r}}</span>
         </div>
     </div>

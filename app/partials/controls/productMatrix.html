@@ -1,0 +1,81 @@
+<div ng-repeat="group in comboVariants"  ng-show="specCount == 2">
+    <h3>{{group.DisplayName}}</h3>
+    <div class="row matrix-grid">
+        <div class="col-xs-3">
+            <div>{{spec2Name}}</div>
+            <div ng-repeat="item in group | orderobjectby:'ListOrder':false">
+                <b>{{item.DisplayName[1]}}</b>
+            </div>
+        </div>
+        <div class="col-xs-2" ng-show="product.DisplayInventory">
+            <div>{{'Quantity Available' | r}}</div>
+            <div ng-repeat="item in group | orderobjectby:'ListOrder':false">
+                {{item.QuantityAvailable}}
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <div>{{'On Order' | r}}</div>
+            <div ng-repeat="item in group | orderobjectby:'ListOrder':false">
+                {{item.OrderQuantity}}
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div>{{'Price' | r}}</div>
+            <div ng-repeat="item in group | orderobjectby:'ListOrder':false">
+                {{(product.StandardPriceSchedule.PriceBreaks[0].Price + item.Markup) | currency}}
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div>{{'Quantity' | r}}</div>
+            <div ng-repeat="item in group | orderobjectby:'ListOrder':false">
+                <div>
+                    <select id="451qa_input_qty" class="form-control" ng-change="qtyChanged()" ng-if="product.PriceSchedule.RestrictedQuantity" ng-model="item.Quantity" ng-options="pb.Quantity as getRestrictedQtyText(pb, product.QuantityMultiplier) for pb in product.PriceSchedule.PriceBreaks"><option value=""></option></select>
+                    <input id="451qa_input_qty" placeholder="0" autocomplete="off" class="form-control" ng-change="qtyChanged()" ng-if="!product.PriceSchedule.RestrictedQuantity" type="text" name="qtyInput" ng-model="item.Quantity"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="specCount == 1">
+    <div class="row matrix-grid">
+        <div class="col-xs-3">
+            <div>{{spec1Name}}</div>
+            <div ng-repeat="group in comboVariants | orderobjectby:'ListOrder':false">
+                <b>{{group.DisplayName}}</b>
+            </div>
+        </div>
+        <div class="col-xs-2" ng-show="product.DisplayInventory">
+            <div>{{'Quantity Available' | r}}</div>
+            <div ng-repeat="group in comboVariants | orderobjectby:'ListOrder':false">
+                {{group.QuantityAvailable}}
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <div>{{'On Order' | r}}</div>
+            <div ng-repeat="group in comboVariants | orderobjectby:'ListOrder':false">
+                {{group.OrderQuantity}}
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div>{{'Price' | r}}</div>
+            <div ng-repeat="group in comboVariants | orderobjectby:'ListOrder':false">
+                {{(product.StandardPriceSchedule.PriceBreaks[0].Price + group.Markup) | currency}}
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div>{{'Quantity' | r}}</div>
+            <div ng-repeat="group in comboVariants | orderobjectby:'ListOrder':false">
+                <div>
+                    <select id="451qa_input_qty" class="form-control" ng-change="qtyChanged()" ng-if="product.PriceSchedule.RestrictedQuantity" ng-model="group[0].Quantity" ng-options="pb.Quantity as getRestrictedQtyText(pb, product.QuantityMultiplier) for pb in product.PriceSchedule.PriceBreaks"><option value=""></option></select>
+                    <input id="451qa_input_qty" placeholder="0" autocomplete="off" class="form-control" ng-change="qtyChanged()" ng-if="!product.PriceSchedule.RestrictedQuantity" type="text" name="qtyInput" ng-model="group[0].Quantity"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-danger" style="margin-top:20px;" ng-show="qtyError" ng-bind-html="qtyError"></div>
+<button class="btn btn-success btn-block btn-lg" type="button" id="451_btn_orderadd" ng-disabled="qtyError" ng-click="addVariantsToOrder()">
+    <loadingindicator ng-show="addToOrderIndicator" />
+    <i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>
+    {{addToOrderText | r}}
+</button>

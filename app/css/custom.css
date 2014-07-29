@@ -4,3 +4,98 @@ Theme name: My SPA Theme
 Version: 1.0
 Template: Howdy
 */
+
+.matrix-grid > div {
+    padding: 0px;
+}
+.matrix-grid > div > div {
+    text-align: center;
+    height: 50px;
+    padding: 10px 5px;
+}
+.matrix-grid > div > div:nth-of-type(even) {
+    background-color: #f5f5f5;
+}
+.matrix-grid > div:last-of-type > div {
+    padding: 5px;
+}
+.matrix-grid > div:last-of-type > div input {
+    text-align: center;
+}
+
+#myPasteBox {
+    min-height: 50px;
+}
+.paste-box-validation {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    right: -10px;
+    border-radius: 4px;
+    margin: 0 15px;
+}
+.paste-box-validation.pbinvalid {
+    background-color: #be0f34;
+    border-color: #770921;
+}
+.paste-box-validation.pbvalid {
+    background-color: #8cc63e;
+    border-color: #638e2a;
+}
+.paste-box-validation .paste-message {
+    font-weight: bold;
+    color: #fff;
+    padding-top: 15px;
+    float: left;
+    padding-left: 15px;
+}
+.paste-box-validation i {
+    cursor: pointer;
+    color: #fff;
+    padding-right: 15px;
+    padding-top: 10px;
+    z-index: 50;
+}
+
+li.spending-account {
+    color: #FFFFFF;
+    padding:10px 10px;
+    border-width:0 1px;
+    border-style: dotted;
+    border-color:#FFFFFF;
+}
+
+li.spending-account span {
+    font-weight: bold;
+}
+
+.navbar .container .navbar-nav.pull-right li.social a i:first-of-type {
+    border-radius:0;
+    border-color: transparent;
+    padding: 0;
+    margin-top:-5px;
+}
+
+.order-billing .quick-address {
+    display: none;
+}
+
+.alert-default {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.variant-badge {
+    background-color: #FFF;
+    padding: 10px 10px 0;
+    border: 1px solid #dddddd;
+}
+.variant-badge p {
+    margin-bottom: 0;
+}
+.variant-badge div.text-center {
+    padding: 5px;
+    margin: 5px -10px 0;
+    background-color: #dddddd;
+}
