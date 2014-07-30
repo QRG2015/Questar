@@ -67,6 +67,12 @@ four51.app.factory('CorporateID', ['$resource', '$451', 'Product', 'Variant', 'O
             saveVariant(variant, product);
         });
 
+        function fixUrls(v) {
+            v.PreviewUrl = v.PreviewUrl.replace('web.four51','.four51');
+            v.ProductionURL = v.ProductionURL.replace('web.four51','.four51');
+            v.ProofUrl = v.ProofUrl.replace('web.four51','.four51');
+        }
+
         function saveVariant(variant, product) {
             Variant.save(variant, function(data) {
                 data.Variant = {};
@@ -80,6 +86,7 @@ four51.app.factory('CorporateID', ['$resource', '$451', 'Product', 'Variant', 'O
                 data.Product.QuantityAvailable = product.QuantityAvailable;
                 data.Product.QuantityMultiplier = product.QuantityMultiplier;
                 data.Specs['Tracker Number'] = product.Specs['Tracker Number'];
+                fixUrls(data);
                 variants.push(data);
 
                 if (variants.length == products.length) {
