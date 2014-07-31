@@ -16,12 +16,12 @@
                 </div>
                 <div>
                     <label ng-show="address.FirstName || address.IsBilling" ng-class="{required: address.IsBilling}">{{'First' | r}} {{'Name' | r}}</label>
-                    <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="First Name" autocomplete="off" ng-required="address.IsBilling" />
+                    <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="First Name" autocomplete="off" ng-required="true" />
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
                     <label ng-show="address.LastName || address.IsBilling" ng-class="{required: address.IsBilling}">{{'Last' | r}} {{'Name' | r}}</label>
-                    <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="Last Name" autocomplete="off" ng-required="address.IsBilling" />
+                    <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="Last Name" autocomplete="off" ng-required="true" />
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
