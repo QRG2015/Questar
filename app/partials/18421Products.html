@@ -97,13 +97,13 @@
 </div>
 
 <div class="row" ng-show="Variants.length > 0">
-    <div class="col-sm-5">
+    <div class="col-sm-6">
         <loadingindicator ng-show="loadingImage" />
         <figure>
-            <img width="100%" ng-src="{{Variants[previewIndex].PreviewUrl}}" alt="Preview Image" title="Preview" imageonload/>
+            <img style="margin: 0 auto;" ng-src="{{Variants[previewIndex].PreviewUrl}}" alt="Preview Image" title="Preview" imageonload/>
         </figure>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-6">
         <div class="row">
             <div ng-repeat="variant in Variants" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="variant-badge">

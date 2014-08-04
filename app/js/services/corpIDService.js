@@ -46,12 +46,6 @@ four51.app.factory('CorporateID', ['$resource', '$451', 'Product', 'Variant', 'O
             validateSpecs(CDSpecs, "right");
         }
 
-        /*angular.forEach(products, function(product) {
-            if (!product.Quantity) {
-                errorMsg.push("Please select a quantity for " + product.ExternalID);
-            }
-        });*/
-
         _then(success, errorMsg);
     }
 
@@ -62,6 +56,14 @@ four51.app.factory('CorporateID', ['$resource', '$451', 'Product', 'Variant', 'O
             var productType = (product.ExternalID.indexOf('A') > -1 || product.ExternalID.indexOf('B') > -1) ? "AB" : "CD";
             var variant = {};
             variant.Specs = (productType == 'AB') ? ABSpecs : CDSpecs;
+            if (variant.Specs['Address']) {
+                variant.Specs['Address1'] = {};
+                variant.Specs['Address1'].Value = variant.Specs['Address'].Value;
+            }
+            else {
+                variant.Specs['Address'] = {};
+                variant.Specs['Address'].Value = variant.Specs['Address1'].Value;
+            }
             variant.ProductInteropID = product.InteropID;
 
             saveVariant(variant, product);
