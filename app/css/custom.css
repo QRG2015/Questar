@@ -5,6 +5,20 @@ Version: 1.0
 Template: Howdy
 */
 
+/*home message */
+.home {
+    background-color:#fff;
+    border-radius:4px;
+    color:#003f89;
+    font-size:14px;
+}
+
+.home a {
+    color:#003f89;
+}
+/* */
+
+
 .matrix-grid > div {
     padding: 0px;
 }
