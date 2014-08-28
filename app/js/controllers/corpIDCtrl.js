@@ -1,7 +1,8 @@
-four51.app.controller('CorpIDCtrl', ['$scope', '$location', '$filter', '$rootScope', '$451', 'User', 'CorporateID',
-    function ($scope, $location, $filter, $rootScope, $451, User, CorporateID) {
+four51.app.controller('CorpIDCtrl', ['$scope', '$location', '$filter', '$rootScope', '$451', '$window', 'User', 'CorporateID',
+    function ($scope, $location, $filter, $rootScope, $451, $window, User, CorporateID) {
 
-        var productArray = ['18-421-A','18-421-B','18-421-C','18-421-D'];
+        var productArray = ($window.location.href.indexOf('AB') > -1) ? ['18-421-A','18-421-B'] : ['18-421-C','18-421-D'];
+
         $scope.loadingProductsIndicator = true;
         CorporateID.getProducts(productArray, function(data) {
             $scope.products = data;

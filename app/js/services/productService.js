@@ -71,26 +71,41 @@ four51.app.factory('Product', ['$resource', '$451', 'Security', 'User', function
 
     function _filter(products) {
         var results = [];
-        var found = false;
-        var productImg = "";
+        var ABfound = false;
+        var CDfound = false;
 
         angular.forEach(products, function(product) {
-            if (product.ExternalID.indexOf('18-421-') == -1) {
+            var id = product.ExternalID;
+            if (id.indexOf('18-421-') == -1) {
                 results.push(product);
             }
             else {
-                found = true;
+                if (id.indexOf('A') > -1 || id.indexOf('B') > -1) {
+                    ABfound = true;
+                }
+                if (id.indexOf('C') > -1 || id.indexOf('D') > -1) {
+                    CDfound = true;
+                }
             }
         });
 
-        if (found) {
+        if (ABfound) {
             var product = {
-                "Name": "Questar Business Cards and Letterhead",
+                "Name": "Starter RR Business Cards and Letterhead",
                 "SmallImageUrl": "css/images/18421.jpg",
-                "ExternalID": "18-421",
-                "InteropID": "18-421"
+                "ExternalID": "18-421-A and 18-421-B",
+                "InteropID": "18-421AB"
             }
             results.splice(0,0,product);
+        }
+        if (CDfound) {
+            var product = {
+                "Name": "Starter IAR Business Cards and Letterhead",
+                "SmallImageUrl": "css/images/18421.jpg",
+                "ExternalID": "18-421-C and 18-421-D",
+                "InteropID": "18-421CD"
+            }
+            results.splice(1,0,product);
         }
 
         return([results, results.length]);
