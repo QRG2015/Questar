@@ -1,10 +1,10 @@
-four51.app.controller('CheckOutViewCtrl', ['$scope', '$location', '$filter', '$rootScope', '$451', 'Analytics', 'User', 'Order', 'OrderConfig', 'FavoriteOrder', 'AddressList',
-function ($scope, $location, $filter, $rootScope, $451, Analytics, User, Order, OrderConfig, FavoriteOrder, AddressList) {
+four51.app.controller('CheckOutViewCtrl', ['$scope', '$location', '$filter', '$rootScope', '$451', 'Analytics', 'User', 'Order', 'OrderConfig', 'FavoriteOrder', 'CustomAddressList',
+function ($scope, $location, $filter, $rootScope, $451, Analytics, User, Order, OrderConfig, FavoriteOrder, CustomAddressList) {
 	if (!$scope.currentOrder) {
         $location.path('catalog');
     }
 
-    AddressList.query(function(list) {
+    CustomAddressList.getall(function(list) {
         $scope.addresses = list;
     });
 
@@ -25,7 +25,7 @@ function ($scope, $location, $filter, $rootScope, $451, Analytics, User, Order, 
 			$scope.currentOrder.BillAddressID = address.ID;
 			$scope.billaddressform = false;
 		}
-		AddressList.query(function(list) {
+        CustomAddressList.getall(function(list) {
 			$scope.addresses = list;
 		});
 		$scope.shipaddress = { Country: 'US', IsShipping: true, IsBilling: false };
