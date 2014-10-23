@@ -44,13 +44,27 @@ four51.app.controller('SpecFormCtrl', ['$scope', '$location', '$route', '$routeP
             });
         }
         $scope.save = function(hideErrorWindowAlert){
-            var num1 = $scope.Variant.Specs.Phone1.Value;
-            var num2 = $scope.Variant.Specs.Phone2.Value;
-            var num3 = $scope.Variant.Specs.Phone3.Value;
 
-            $scope.Variant.Specs.Phone1.Value = num1.substring(0, 3) + "." + num1.substring(3, 6) + "." + num1.substring(6, 10);
-            $scope.Variant.Specs.Phone2.Value = num2.substring(0, 3) + "." + num2.substring(3, 6) + "." + num2.substring(6, 10);
-            $scope.Variant.Specs.Phone3.Value = num3.substring(0, 3) + "." + num3.substring(3, 6) + "." + num3.substring(6, 10);
+            if($scope.Variant.Specs.Phone1) {
+                var num1 = $scope.Variant.Specs.Phone1.Value;
+                if ($scope.Variant.Specs.Phone1.Value && $scope.Variant.Specs.Phone1.Value.indexOf(".") == -1) {
+                    $scope.Variant.Specs.Phone1.Value = num1.substring(0, 3) + "." + num1.substring(3, 6) + "." + num1.substring(6, 10);
+                }
+            }
+
+            if($scope.Variant.Specs.Phone2) {
+                var num2 = $scope.Variant.Specs.Phone2.Value;
+                if ($scope.Variant.Specs.Phone2.Value && $scope.Variant.Specs.Phone2.Value.indexOf(".") == -1) {
+                    $scope.Variant.Specs.Phone2.Value = num2.substring(0, 3) + "." + num2.substring(3, 6) + "." + num2.substring(6, 10);
+                }
+            }
+
+            if($scope.Variant.Specs.Phone3.Value){
+                var num3 = $scope.Variant.Specs.Phone3.Value;
+                if($scope.Variant.Specs.Phone3.Value && $scope.Variant.Specs.Phone3.Value.indexOf(".") == -1){
+                    $scope.Variant.Specs.Phone3.Value = num3.substring(0, 3) + "." + num3.substring(3, 6) + "." + num3.substring(6, 10);
+                }
+            }
 
             saveVariant($scope.Variant, false, hideErrorWindowAlert);
         }
