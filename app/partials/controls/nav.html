@@ -20,10 +20,10 @@
                             <span class="hidden-xs">{{'Orders' | r}}</span>
                         </a>
                     </li>
-                    <li class="report" ng-if="AppConst.debug" ng-class="{'active': isActive('reports')}">
+                    <li class="report" ng-if="user.Permissions.contains('AdvancedReporting')" ng-class="{'active': isActive('reports')}">
                         <a id="451qa_order_link" href="reports">
                             <i class="fa fa-bar-chart-o"></i>
-                            <span class="hidden-xs">{{'Reports' | r}}</span>
+                            <span class="hidden-xs">{{'Reports' | r | xlat}}</span>
                         </a>
                     </li>
                     <li ng-class="{'active': isActive(['admin', 'addresses', 'address', 'messages', 'message', 'favoriteorders'])}">
