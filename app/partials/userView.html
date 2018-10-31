@@ -13,7 +13,7 @@
                 </div>
 			</div>
 			<div class="panel-footer">
-				<input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_existing.$invalid" id="451_btn_login_existing" value="{{'Logon' | r}}" />
+				<input class="btn btn-medium btn-primary" type="submit" ng-disabled="login_existing.$invalid || buttonClicked" id="451_btn_login_existing" value="{{'Logon' | r}}" />
 				<inlineerror ng-show="loginAsExistingError" title="{{loginAsExistingError}}" />
 			</div>
 		</div>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="panel-footer text-center">
-                <input class="btn btn-primary pull-right" type="submit" ng-disabled="user_form.$invalid" id="451_btn_user" value="{{user.Type == 'TempCustomer' ? 'Create Acccount' : 'Save'}}" />
+                <input class="btn btn-primary pull-right" type="submit" ng-disabled="user_form.$invalid || buttonClicked" id="451_btn_user" value="{{user.Type == 'TempCustomer' ? 'Create Acccount' : 'Save'}}" />
                 <span class="alert alert-success" ng-show="actionMessage" ng-bind-html="actionMessage | r"></span>
             </div>
         </div>
